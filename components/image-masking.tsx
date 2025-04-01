@@ -26,6 +26,10 @@ export default function ImageMasking({ uploadedImage, selectedTexture, onMaskCom
   const [isMaskApplied, setIsMaskApplied] = useState(false)
   const { toast } = useToast()
 
+  // Thêm state cho zoom và pan
+  const [scale, setScale] = useState(1);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+
   // Khởi tạo canvas khi component được mount
   useEffect(() => {
     const canvas = canvasRef.current
@@ -119,8 +123,10 @@ export default function ImageMasking({ uploadedImage, selectedTexture, onMaskCom
     const rect = canvas.getBoundingClientRect()
     const scaleX = canvas.width / rect.width
     const scaleY = canvas.height / rect.height
-    const x = (e.clientX - rect.left) * scaleX
-    const y = (e.clientY - rect.top) * scaleY
+    
+    // Áp dụng transform
+    const x = (e.clientX - rect.left - offset.x) * scaleX / scale;
+    const y = (e.clientY - rect.top - offset.y) * scaleY / scale;
 
     ctx.lineTo(x, y)
     ctx.stroke()
@@ -273,30 +279,62 @@ export default function ImageMasking({ uploadedImage, selectedTexture, onMaskCom
     }
   }
 
+  // Xử lý touch events
   const handleTouchStart = (e: React.TouchEvent<HTMLCanvasElement>) => {
-    e.preventDefault()
-    const touch = e.touches[0]
-    const mouseEvent = new MouseEvent("mousedown", {
-      clientX: touch.clientX,
-      clientY: touch.clientY,
-    }) as unknown as React.MouseEvent<HTMLCanvasElement>
-    startDrawing(mouseEvent)
-  }
+    if (e.touches.length === 1) {
+      const touch = e.touches[0];
+      const mouseEvent = new MouseEvent("mousedown", {
+        clientX: touch.clientX,
+        clientY: touch.clientY,
+      }) as unknown as React.MouseEvent<HTMLCanvasElement>;
+      startDrawing(mouseEvent);
+    }
+  };
 
   const handleTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
-    e.preventDefault()
-    if (!isDrawing) return
-    const touch = e.touches[0]
-    const mouseEvent = new MouseEvent("mousemove", {
-      clientX: touch.clientX,
-      clientY: touch.clientY,
-    }) as unknown as React.MouseEvent<HTMLCanvasElement>
-    draw(mouseEvent)
-  }
+    if (e.touches.length === 1) {
+      const touch = e.touches[0];
+      const mouseEvent = new MouseEvent("mousemove", {
+        clientX: touch.clientX,
+        clientY: touch.clientY,
+      }) as unknown as React.MouseEvent<HTMLCanvasElement>;
+      draw(mouseEvent);
+    }
+  };
 
   const handleTouchEnd = () => {
-    stopDrawing()
-  }
+    stopDrawing();
+  };
+
+  // Xử lý pinch-to-zoom
+  const handleTouchMoveMulti = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    if (e.touches.length === 2) {
+      const touch1 = e.touches[0];
+      const touch2 = e.touches[1];
+      
+      const dist = Math.hypot(
+        touch2.clientX - touch1.clientX,
+        touch2.clientY - touch1.clientY
+      );
+      
+      if (initialDistance.current > 0) {
+        const newScale = scale * (dist / initialDistance.current);
+        setScale(Math.min(Math.max(newScale, 0.5), 3));
+      }
+      initialDistance.current = dist;
+    }
+  };
+
+  // Thêm transform vào canvas
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    ctx.setTransform(scale, 0, 0, scale, offset.x, offset.y);
+  }, [scale, offset]);
 
   function extractCodeFromName(name: string): string {
     const match = name.match(/^C(\d+)/)
@@ -406,10 +444,15 @@ export default function ImageMasking({ uploadedImage, selectedTexture, onMaskCom
               onMouseMove={draw}
               onMouseUp={stopDrawing}
               onMouseLeave={stopDrawing}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
+              onTouchStart={(e) => {
+                if (e.touches.length === 1) {
+                  handleTouchMove(e);
+                } else {
+                  handleTouchMoveMulti(e);
+                }
+              }}
               onTouchEnd={handleTouchEnd}
-              className="max-w-full cursor-crosshair"
+              className="max-w-full cursor-crosshair touch-none"
               style={{
                 width: "100%",
                 height: canvasSize.height > 0 ? canvasSize.height : "auto",
