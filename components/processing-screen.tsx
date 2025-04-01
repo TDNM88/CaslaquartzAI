@@ -7,15 +7,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Clock, Info, CheckCircle2, AlertTriangle } from "lucide-react"
 
 interface ProcessingScreenProps {
-  progress?: number // Progress giờ là optional, vì ta sẽ tự động điều khiển nếu không có giá trị từ bên ngoài
   textureName: string
   textureQuote: string
   isSimulated?: boolean
-  isComplete?: boolean // Thêm prop để báo hiệu khi có kết quả
+  isComplete?: boolean // Báo hiệu khi có kết quả
 }
 
 export default function ProcessingScreen({
-  progress: externalProgress,
   textureName,
   textureQuote,
   isSimulated = false,
@@ -103,47 +101,48 @@ export default function ProcessingScreen({
     let interval: NodeJS.Timeout
 
     if (isComplete) {
-      // Khi có kết quả, lập tức đặt progress thành 100%
+      // Khi có kết quả, đặt progress thành 100%
       setInternalProgress(100)
     } else {
       // Giai đoạn 1: Tăng từ 0% đến 90% trong 60 giây
-      if (elapsedTime <= 60) {
+      if (elapsedTime < 60) {
         interval = setInterval(() => {
           setInternalProgress((prev) => {
-            const step = 90 / 60 // Tăng 1.5% mỗi giây
-            return Math.min(prev + step, 90)
+            const step = 90 / 60000 // Tăng đều trong 60 giây
+            return Math.min(prev + step * 1000, 90) // Cập nhật mỗi 1 giây
           })
         }, 1000)
       }
-      // Giai đoạn 2: Tăng từ 90% đến 95% trong 30 giây tiếp theo
-      else if (elapsedTime <= 90) {
+      // Giai đoạn 2: Tăng từ 90% đến 95% trong 20 giây tiếp theo
+      else if (elapsedTime >= 60 && elapsedTime < 80) {
         interval = setInterval(() => {
           setInternalProgress((prev) => {
-            const step = 5 / 30 // Tăng 0.1667% mỗi giây
-            return Math.min(prev + step, 95)
+            const step = 5 / 20000 // Tăng đều trong 20 giây
+            return Math.min(prev + step * 1000, 95)
           })
         }, 1000)
+      }
+      // Giai đoạn 3: Dừng ở 95% cho đến khi có kết quả
+      else if (elapsedTime >= 80) {
+        setInternalProgress(95)
       }
     }
 
     return () => clearInterval(interval)
   }, [elapsedTime, isComplete])
 
-  // Dùng externalProgress nếu có, nếu không thì dùng internalProgress
-  const currentProgress = externalProgress !== undefined ? externalProgress : internalProgress
-
   // Cập nhật giai đoạn xử lý dựa trên tiến trình
   useEffect(() => {
-    if (currentProgress < 25) {
+    if (internalProgress < 25) {
       setProcessingStage(1)
-    } else if (currentProgress < 50) {
+    } else if (internalProgress < 50) {
       setProcessingStage(2)
-    } else if (currentProgress < 75) {
+    } else if (internalProgress < 75) {
       setProcessingStage(3)
     } else {
       setProcessingStage(4)
     }
-  }, [currentProgress])
+  }, [internalProgress])
 
   // Format thời gian
   const formatTime = (seconds: number) => {
@@ -188,9 +187,9 @@ export default function ProcessingScreen({
         <div className="space-y-2">
           <div className="flex justify-between text-xs sm:text-sm">
             <span>Tiến trình xử lý</span>
-            <span>{Math.round(currentProgress)}%</span>
+            <span>{Math.round(internalProgress)}%</span>
           </div>
-          <Progress value={currentProgress} className="h-2" />
+          <Progress value={internalProgress} className="h-2" />
         </div>
 
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
@@ -328,7 +327,7 @@ export default function ProcessingScreen({
       </Tabs>
 
       {/* Hiển thị thông báo hoàn tất khi tiến trình đạt 100% */}
-      {isComplete && currentProgress === 100 && (
+      {isComplete && internalProgress === 100 && (
         <div className="mt-4 p-4 bg-green-50 rounded-lg border border-green-200 flex items-center gap-2">
           <CheckCircle2 className="h-5 w-5 text-green-500" />
           <p className="text-sm text-green-700">Xử lý hoàn tất! Kết quả đã sẵn sàng để hiển thị.</p>
