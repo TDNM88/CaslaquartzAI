@@ -32,6 +32,9 @@ export default function RootLayout({
       <body className={`${beVietnamPro.className} min-h-screen text-gray-900 overflow-x-hidden`}>
         {children}
         <Toaster />
+        <footer className="py-4 text-center text-sm text-gray-500 border-t">
+          Ứng dụng được phát triển bởi TDNM
+        </footer>
       </body>
     </html>
   )
