@@ -19,7 +19,7 @@ export default function ImageMasking({ uploadedImage, selectedTexture, onMaskCom
   const containerRef = useRef<HTMLDivElement>(null)
   const [isDrawing, setIsDrawing] = useState(false)
   const [tool, setTool] = useState<"brush" | "eraser">("brush")
-  const [brushSize, setBrushSize] = useState(20) // Giảm kích thước cọ mặc định cho di động
+  const [brushSize, setBrushSize] = useState(20)
   const [history, setHistory] = useState<string[]>([])
   const [historyIndex, setHistoryIndex] = useState(-1)
   const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 })
@@ -50,7 +50,7 @@ export default function ImageMasking({ uploadedImage, selectedTexture, onMaskCom
       if (!container) return
 
       const containerWidth = container.clientWidth
-      const containerHeight = window.innerHeight * 0.5 // Giới hạn chiều cao trên di động
+      const containerHeight = window.innerHeight * 0.5
       const aspectRatio = img.height / img.width
       let canvasWidth = containerWidth
       let canvasHeight = canvasWidth * aspectRatio
@@ -75,15 +75,17 @@ export default function ImageMasking({ uploadedImage, selectedTexture, onMaskCom
     img.src = uploadedImage
   }, [uploadedImage])
 
-  // Cập nhật transform khi scale hoặc offset thay đổi
+  // Cập nhật transform và vẽ lại canvas khi scale hoặc offset thay đổi
   useEffect(() => {
     const canvas = canvasRef.current
-    if (!canvas) return
+    const maskCanvas = maskCanvasRef.current
+    if (!canvas || !maskCanvas) return
 
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
-    ctx.setTransform(1, 0, 0, 1, 0, 0) // Reset transform
+    // Reset và áp dụng transform
+    ctx.setTransform(1, 0, 0, 1, 0, 0)
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.scale(scale, scale)
     ctx.translate(offset.x / scale, offset.y / scale)
@@ -92,19 +94,30 @@ export default function ImageMasking({ uploadedImage, selectedTexture, onMaskCom
     img.crossOrigin = "anonymous"
     img.onload = () => {
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+      // Vẽ lại lịch sử mask nếu có
+      if (historyIndex >= 0) {
+        const [, maskDataURL] = history[historyIndex].split("|")
+        const maskImg = new Image()
+        maskImg.crossOrigin = "anonymous"
+        maskImg.onload = () => {
+          ctx.drawImage(maskImg, 0, 0, canvas.width, canvas.height)
+        }
+        maskImg.src = maskDataURL
+      }
     }
     img.src = uploadedImage
-  }, [scale, offset, uploadedImage])
+  }, [scale, offset, uploadedImage, history, historyIndex])
 
+  // Hàm tính tọa độ chính xác trên canvas
   const getCanvasCoordinates = (clientX: number, clientY: number) => {
     const canvas = canvasRef.current
     if (!canvas) return { x: 0, y: 0 }
 
     const rect = canvas.getBoundingClientRect()
-    const scaleX = canvas.width / (rect.width * scale)
-    const scaleY = canvas.height / (rect.height * scale)
-    const x = (clientX - rect.left) * scaleX - offset.x / scale
-    const y = (clientY - rect.top) * scaleY - offset.y / scale
+    const scaleX = canvas.width / rect.width
+    const scaleY = canvas.height / rect.height
+    const x = ((clientX - rect.left) / scale - offset.x / scale) * scaleX
+    const y = ((clientY - rect.top) / scale - offset.y / scale) * scaleY
     return { x, y }
   }
 
@@ -214,7 +227,10 @@ export default function ImageMasking({ uploadedImage, selectedTexture, onMaskCom
     const img = new Image()
     img.crossOrigin = "anonymous"
     img.onload = () => {
+      ctx.setTransform(1, 0, 0, 1, 0, 0)
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.scale(scale, scale)
+      ctx.translate(offset.x / scale, offset.y / scale)
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
     }
     img.src = dataURL
@@ -246,7 +262,10 @@ export default function ImageMasking({ uploadedImage, selectedTexture, onMaskCom
     const img = new Image()
     img.crossOrigin = "anonymous"
     img.onload = () => {
+      ctx.setTransform(1, 0, 0, 1, 0, 0)
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.scale(scale, scale)
+      ctx.translate(offset.x / scale, offset.y / scale)
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
     }
     img.src = dataURL
@@ -272,6 +291,7 @@ export default function ImageMasking({ uploadedImage, selectedTexture, onMaskCom
     const img = new Image()
     img.crossOrigin = "anonymous"
     img.onload = () => {
+      ctx.setTransform(1, 0, 0, 1, 0, 0)
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
 
@@ -308,7 +328,7 @@ export default function ImageMasking({ uploadedImage, selectedTexture, onMaskCom
     }
   }
 
-  // Touch events cho vẽ
+  // Touch events
   const handleTouchStart = (e: React.TouchEvent<HTMLCanvasElement>) => {
     e.preventDefault()
     if (e.touches.length === 1) {

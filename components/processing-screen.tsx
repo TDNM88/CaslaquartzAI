@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Clock, Info, CheckCircle2, AlertTriangle } from "lucide-react"
 
 interface ProcessingScreenProps {
+  progress: number
   textureName: string
   textureQuote: string
   isSimulated?: boolean
