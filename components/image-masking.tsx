@@ -29,6 +29,7 @@ export default function ImageMasking({ uploadedImage, selectedTexture, onMaskCom
   // Thêm state cho zoom và pan
   const [scale, setScale] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const initialDistance = useRef(0);
 
   // Khởi tạo canvas khi component được mount
   useEffect(() => {
