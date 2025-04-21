@@ -33,8 +33,11 @@ export default function RootLayout({
         {children}
         <Toaster />
         <footer className="py-4 text-center text-sm text-gray-500 border-t">
-          Ứng dụng được phát triển bởi TDNM
-        </footer>
+    Ứng dụng này thuộc bản quyền của 
+    <a href="https://caslastone.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+        Caslquartz Vietnam
+    </a>
+</footer>
       </body>
     </html>
   )
