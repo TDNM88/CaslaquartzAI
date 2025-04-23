@@ -17,7 +17,7 @@ export default function WelcomeScreen({ onStart }: WelcomeScreenProps) {
       title: "Chào mừng đến với CaslaQuartz",
       description: "Ứng dụng mô phỏng đá thạch anh CaslaQuartz cho không gian nội thất của bạn",
       image:
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "https://caslaquartz.com/pictures/catalog/tintuc/da-thach-anh-nhan-tao-caslaquartz-1.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       features: [
         "Tải lên hình ảnh không gian nội thất của bạn",
         "Chọn từ 43 mẫu đá thạch anh CaslaQuartz cao cấp",
@@ -29,7 +29,7 @@ export default function WelcomeScreen({ onStart }: WelcomeScreenProps) {
       title: "Quy trình đơn giản",
       description: "Chỉ với vài bước đơn giản, bạn có thể thấy không gian của mình được biến đổi",
       image:
-        "https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "https://caslaquartz.com/pictures/catalog/home/products/pro-4202.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       steps: [
         "Tải lên hình ảnh không gian của bạn",
         "Chọn mẫu đá thạch anh CaslaQuartz yêu thích",
@@ -41,7 +41,7 @@ export default function WelcomeScreen({ onStart }: WelcomeScreenProps) {
       title: "Bắt đầu ngay",
       description: "Hãy biến không gian của bạn thành tuyệt tác với đá thạch anh CaslaQuartz",
       image:
-        "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "https://thstone.vn/wp-content/uploads/2024/03/da-thach-anh-nhan-tao-calacatta-extra-ung-dung-2.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       benefits: [
         "Độ bền vượt trội, chống trầy xước",
         "Kháng khuẩn tự nhiên, an toàn cho gia đình",
