@@ -170,7 +170,7 @@ export default function ImageUploader({ onImageUpload, uploadedImage }: ImageUpl
         <Card className="p-3 sm:p-4 border border-gray-200">
           <div className="aspect-video bg-gray-100 rounded flex items-center justify-center mb-2">
             <img
-              src="https://caslaquartz.com/pictures/catalog/home/products/pro-4202.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+              src="https://caslaquartz.com/pictures/catalog/product-details/4204-bg.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
               alt="Ví dụ nhà bếp"
               className="max-h-full max-w-full object-cover rounded"
             />
