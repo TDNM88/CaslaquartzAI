@@ -34,7 +34,7 @@ export default function ProcessingScreen({
       description:
         "Bề mặt siêu bền, chống trầy xước và kháng khuẩn tuyệt đối. Lý tưởng cho mặt bàn bếp và phòng tắm hiện đại.",
       imageUrl:
-        "https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://media.doanhnghiepthuonghieu.vn/uploads/news/2023/06/30/1688112233cs02.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 2,
@@ -42,7 +42,7 @@ export default function ProcessingScreen({
       description:
         "Đa dạng màu sắc, phù hợp với mọi không gian nội thất. Sản xuất tại Việt Nam với công nghệ tiên tiến nhất.",
       imageUrl:
-        "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://caslaquartz.com/pictures/catalog/about/product-2.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 3,
@@ -57,7 +57,7 @@ export default function ProcessingScreen({
       description:
         "Đội ngũ thợ lành nghề, thi công nhanh chóng, chính xác. Bảo hành dài hạn, hỗ trợ 24/7 cho mọi nhu cầu.",
       imageUrl:
-        "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://caslaquartz.com/pictures/catalog/home/products/pro-4204.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
   ]
 
