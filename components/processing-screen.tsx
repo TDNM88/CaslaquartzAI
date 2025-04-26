@@ -42,7 +42,7 @@ export default function ProcessingScreen({
       description:
         "Đa dạng màu sắc, phù hợp với mọi không gian nội thất. Sản xuất tại Việt Nam với công nghệ tiên tiến nhất.",
       imageUrl:
-        "public/C5233-5.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://i.ibb.co/nsyZ46vk/C5233-3.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 3,
