@@ -16,8 +16,8 @@ export default function WelcomeScreen({ onStart }: WelcomeScreenProps) {
     {
       title: "Chào mừng đến với CaslaQuartz",
       description: "Ứng dụng mô phỏng đá thạch anh CaslaQuartz cho không gian nội thất của bạn",
-      image:
-        "public/C4149.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      imageUrl:
+        "https://i.ibb.co/zhGFYB5m/C4149.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       features: [
         "Tải lên hình ảnh không gian nội thất của bạn",
         "Chọn từ 43 mẫu đá thạch anh CaslaQuartz cao cấp",
@@ -28,8 +28,8 @@ export default function WelcomeScreen({ onStart }: WelcomeScreenProps) {
     {
       title: "Quy trình đơn giản",
       description: "Chỉ với vài bước đơn giản, bạn có thể thấy không gian của mình được biến đổi",
-      image:
-        "public/C4348-0.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      imageUrl:
+        "https://i.ibb.co/B5zqFz5m/G5233-5.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       steps: [
         "Tải lên hình ảnh không gian của bạn",
         "Chọn mẫu đá thạch anh CaslaQuartz yêu thích",
@@ -40,8 +40,8 @@ export default function WelcomeScreen({ onStart }: WelcomeScreenProps) {
     {
       title: "Bắt đầu ngay",
       description: "Hãy biến không gian của bạn thành tuyệt tác với đá thạch anh CaslaQuartz",
-      image:
-        "public/C5242-1.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      imageUrl:
+        "https://i.ibb.co/ccKnMdLx/G5233-3.jpg&auto=format&fit=crop&w=1200&q=80",
       benefits: [
         "Độ bền vượt trội, chống trầy xước",
         "Kháng khuẩn tự nhiên, an toàn cho gia đình",
