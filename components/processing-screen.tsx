@@ -33,30 +33,30 @@ export default function ProcessingScreen({
       title: "Đá thạch anh cao cấp CaslaQuartz",
       description:
         "Bề mặt siêu bền, chống trầy xước và kháng khuẩn tuyệt đối. Lý tưởng cho mặt bàn bếp và phòng tắm hiện đại.",
-      imageUrl:
-        "https://github.com/TDNM88/CaslaquartzAI/blob/master/public/C5233-3.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image:
+        "public/C5233-3.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 2,
       title: "Đá thạch anh CaslaQuartz - Sản phẩm Việt Nam",
       description:
         "Đa dạng màu sắc, phù hợp với mọi không gian nội thất. Sản xuất tại Việt Nam với công nghệ tiên tiến nhất.",
-      imageUrl:
-        "https://github.com/TDNM88/CaslaquartzAI/blob/master/public/C5233-5.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image:
+        "public/C5233-5.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 3,
       title: "Đá thạch anh nhân tạo CaslaQuartz - Đẳng cấp quốc tế",
       description: "Chất lượng quốc tế. Độ bền vượt trội và thiết kế đẳng cấp cho không gian sang trọng.",
-      imageUrl:
-        "https://github.com/TDNM88/CaslaquartzAI/blob/master/public/C4149.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image:
+        "public/C4149.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 4,
       title: "Dịch vụ thi công đá thạch anh CaslaQuartz chuyên nghiệp",
       description:
         "Đội ngũ thợ lành nghề, thi công nhanh chóng, chính xác. Bảo hành dài hạn, hỗ trợ 24/7 cho mọi nhu cầu.",
-      imageUrl:
+      image:
         "https://caslaquartz.com/pictures/catalog/home/products/pro-4204.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
   ]
