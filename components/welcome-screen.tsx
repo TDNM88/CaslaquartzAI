@@ -41,7 +41,7 @@ export default function WelcomeScreen({ onStart }: WelcomeScreenProps) {
       title: "Bắt đầu ngay",
       description: "Hãy biến không gian của bạn thành tuyệt tác với đá thạch anh CaslaQuartz",
       image:
-        "https://i.ibb.co/ccKnMdLx/G5233-3.jpg&auto=format&fit=crop&w=1200&q=80",
+        "https://i.ibb.co/ccKnMdLx/G5233-3.jpgixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       benefits: [
         "Độ bền vượt trội, chống trầy xước",
         "Kháng khuẩn tự nhiên, an toàn cho gia đình",
