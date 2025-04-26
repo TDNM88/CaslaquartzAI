@@ -17,7 +17,7 @@ export default function WelcomeScreen({ onStart }: WelcomeScreenProps) {
       title: "Chào mừng đến với CaslaQuartz",
       description: "Ứng dụng mô phỏng đá thạch anh CaslaQuartz cho không gian nội thất của bạn",
       image:
-        "https://i.ibb.co/zhGFYB5m/C4149.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "https://i.ibb.co/vxCng8YD/G5233-3.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       features: [
         "Tải lên hình ảnh không gian nội thất của bạn",
         "Chọn từ 43 mẫu đá thạch anh CaslaQuartz cao cấp",
