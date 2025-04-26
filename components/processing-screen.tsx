@@ -33,7 +33,7 @@ export default function ProcessingScreen({
       title: "Đá thạch anh cao cấp CaslaQuartz",
       description:
         "Bề mặt siêu bền, chống trầy xước và kháng khuẩn tuyệt đối. Lý tưởng cho mặt bàn bếp và phòng tắm hiện đại.",
-      imageUrl:
+      image:
         "https://i.ibb.co/nsyZ46vk/C5242-1.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
@@ -41,14 +41,14 @@ export default function ProcessingScreen({
       title: "Đá thạch anh CaslaQuartz - Sản phẩm Việt Nam",
       description:
         "Đa dạng màu sắc, phù hợp với mọi không gian nội thất. Sản xuất tại Việt Nam với công nghệ tiên tiến nhất.",
-      imageUrl:
+      image:
         "https://i.ibb.co/nsyZ46vk/C5233-3.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 3,
       title: "Đá thạch anh nhân tạo CaslaQuartz - Đẳng cấp quốc tế",
       description: "Chất lượng quốc tế. Độ bền vượt trội và thiết kế đẳng cấp cho không gian sang trọng.",
-      imageUrl:
+      image:
         "https://i.ibb.co/RTqD9qvY/C4348-0.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
