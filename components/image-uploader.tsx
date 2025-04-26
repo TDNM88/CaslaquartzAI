@@ -159,7 +159,7 @@ export default function ImageUploader({ onImageUpload, uploadedImage }: ImageUpl
         <Card className="p-3 sm:p-4 border border-gray-200">
           <div className="aspect-video bg-gray-100 rounded flex items-center justify-center mb-2">
             <img
-              src="https://caslaquartz.com/pictures/catalog/background/3.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+              src="https://i.ibb.co/zhGFYB5m/C4149.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
               alt="Ví dụ phòng khách"
               className="max-h-full max-w-full object-cover rounded"
             />
@@ -170,7 +170,7 @@ export default function ImageUploader({ onImageUpload, uploadedImage }: ImageUpl
         <Card className="p-3 sm:p-4 border border-gray-200">
           <div className="aspect-video bg-gray-100 rounded flex items-center justify-center mb-2">
             <img
-              src="https://caslaquartz.com/pictures/catalog/product-details/4204-bg.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+              src="https://i.ibb.co/RTqD9qvY/C4348-0.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
               alt="Ví dụ nhà bếp"
               className="max-h-full max-w-full object-cover rounded"
             />
