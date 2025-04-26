@@ -34,7 +34,7 @@ export default function ProcessingScreen({
       description:
         "Bề mặt siêu bền, chống trầy xước và kháng khuẩn tuyệt đối. Lý tưởng cho mặt bàn bếp và phòng tắm hiện đại.",
       imageUrl:
-        "https://media.doanhnghiepthuonghieu.vn/uploads/news/2023/06/30/1688112233cs02.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://github.com/TDNM88/CaslaquartzAI/blob/master/public/C5233-3.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 2,
@@ -42,14 +42,14 @@ export default function ProcessingScreen({
       description:
         "Đa dạng màu sắc, phù hợp với mọi không gian nội thất. Sản xuất tại Việt Nam với công nghệ tiên tiến nhất.",
       imageUrl:
-        "https://caslaquartz.com/pictures/catalog/about/product-2.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://github.com/TDNM88/CaslaquartzAI/blob/master/public/C5233-5.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 3,
       title: "Đá thạch anh nhân tạo CaslaQuartz - Đẳng cấp quốc tế",
       description: "Chất lượng quốc tế. Độ bền vượt trội và thiết kế đẳng cấp cho không gian sang trọng.",
       imageUrl:
-        "https://images.unsplash.com/photo-1565182999561-18d7dc61c393?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://github.com/TDNM88/CaslaquartzAI/blob/master/public/C4149.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       id: 4,
