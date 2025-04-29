@@ -2,9 +2,17 @@ import type { Metadata } from "next"
 import ImageEditor from "@/components/image-editor"
 
 export const metadata: Metadata = {
-  title: "CaslaQuartz - Mô phỏng đá thạch anh",
-  description:
-    "Ứng dụng cho phép người dùng áp dụng kết cấu đá thạch anh CaslaQuartz vào không gian kiến trúc nội thất của bạn",
+  title: 'Casla - Mô phỏng đá thạch anh',
+  description: 'Ứng dụng mô phỏng đá thạch anh',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/manifest.json',
+  appleWebApp: {
+    title: 'Casla', // Tên hiển thị trên iOS
+    capable: true,
+  },
 }
 
 export default function Home() {
