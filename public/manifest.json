@@ -1,6 +1,7 @@
 {
-  "name": "My Next.js PWA",
-  "short_name": "NextPWA",
+  "name": "CaslaQuartz - Mô phỏng đá thạch anh",
+  "short_name": "CaslaQuartz",
+  "description": "Ứng dụng mô phỏng đá thạch anh CaslaQuartz",
   "icons": [
     {
       "src": "/icon-192x192.png",
