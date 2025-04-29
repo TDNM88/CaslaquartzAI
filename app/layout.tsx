@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "CaslaQuartz - Mô phỏng đá thạch anh",
   description: "Ứng dụng cho phép người dùng áp dụng kết cấu đá thạch anh CaslaQuartz vào không gian kiến trúc nội thất",
   appleWebApp: {
-    title: "Casla",
+    title: "Casla Quartz",
     capable: true,
   },
 };
