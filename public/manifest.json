@@ -1,6 +1,6 @@
 {
   "name": "CaslaQuartz - Mô phỏng đá thạch anh",
-  "short_name": "CaslaQuartz",
+  "short_name": "Casla",  // ← Đổi thành tên ngắn ở đây
   "description": "Ứng dụng mô phỏng đá thạch anh CaslaQuartz",
   "icons": [
     {
