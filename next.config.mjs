@@ -1,3 +1,5 @@
+import withPWA from 'next-pwa'
+
 let userConfig = undefined
 try {
   userConfig = await import('./v0-user-next.config')
@@ -21,9 +23,15 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+  pwa: {
+    dest: 'public', // Thư mục nơi Service Worker và các file cache sẽ được lưu
+    disable: process.env.NODE_ENV === 'development', // Vô hiệu hóa PWA khi đang phát triển
+  },
 }
 
-mergeConfig(nextConfig, userConfig)
+// Áp dụng PWA vào cấu hình Next.js
+const mergedConfig = withPWA(nextConfig)
+mergeConfig(mergedConfig, userConfig)
 
 function mergeConfig(nextConfig, userConfig) {
   if (!userConfig) {
@@ -45,4 +53,4 @@ function mergeConfig(nextConfig, userConfig) {
   }
 }
 
-export default nextConfig
+export default mergedConfig
